@@ -8,15 +8,33 @@ const env = {
   NODE_ENV: '"production"',
 };
 const extractCss = new MiniCssExtractPlugin({
-  'filename': '[name].css',
-  'chunkFilename': '[id].css'
+  filename: 'css/app.css'
 });
 
 module.exports = merge(common, {
   mode: 'production',
   devtool: '#source-map',
   module: {
-    rules: utils.styleLoaders({extractor: MiniCssExtractPlugin})
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'postcss-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ],
+        include: utils.resolve('src/scss')
+      },
+    ]
   },
   optimization: {
     minimize: true

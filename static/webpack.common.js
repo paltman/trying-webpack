@@ -5,7 +5,7 @@ module.exports = {
   entry: utils.resolve('src/js/index.js'),
   output: {
     path: utils.resolve('dist'),
-    // filename: './js/site.js',
+    filename: './js/site.js',
     publicPath: '/site_media/static/',
   },
   module: {
