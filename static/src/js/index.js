@@ -1,12 +1,10 @@
-/* global window document */
-window.jQuery = window.$ = require('jquery');
-
-const $ = window.$;
-
+/* global $ */
 require('bootstrap/dist/js/bootstrap.bundle');
 
 import ajaxSendMethod from './ajax';
 import handleMessageDismiss from './messages';
+
+import '@/scss/index.scss';
 
 $(() => {
     $(document).ajaxSend(ajaxSendMethod);
